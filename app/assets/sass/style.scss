@@ -1,0 +1,56 @@
+@import 'app/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+
+
+@font-face {
+    font-family: 'besom';
+    src: url('../fonts/BESOM-FREE-FONT.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$dark-blue: #003675;
+
+hr {
+  border: 0px;
+  height: 54px;
+  width: 90%;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/faixa_branca_1.png');
+  background-repeat: no-repeat;
+}
+
+header {
+  border: 0;
+  height: 350px;
+  background-color: #d7d5d5;
+  text-align: center;
+  img.logo {
+    margin-top: 50px;
+    max-width: 80%;
+  }
+  .title {
+    h1 {
+      -webkit-transform: rotate(358deg);
+      -moz-transform: rotate(358deg);
+      -o-transform: rotate(358deg);
+      writing-mode: lr-tb;
+    }
+    font-family: besom;
+    color: $dark-blue;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 741px;
+    min-height: 106px;
+    margin-top: 25px;
+    background-image: url('../img/faixa_tinta_1.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    .hashtag {
+      color: white;
+    }
+  }
+}
