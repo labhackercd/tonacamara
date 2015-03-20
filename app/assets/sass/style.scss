@@ -9,7 +9,9 @@
 }
 
 $dark-blue: #003675;
+$dark-gray: #313131;
 $blue: #008BC5;
+$green: #45651A;
 
 hr {
   border: 0px;
@@ -19,6 +21,10 @@ hr {
   background-size: contain;
   background-image: url('../img/faixa_branca_1.png');
   background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: besom;
 }
 
 header {
@@ -36,8 +42,7 @@ header {
       -moz-transform: rotate(358deg);
       -o-transform: rotate(358deg);
       writing-mode: lr-tb;
-    }
-    font-family: besom;
+    }    
     color: $dark-blue;
     padding: 10px;
     margin-left: auto;
@@ -49,7 +54,7 @@ header {
     background-image: url('../img/faixa_tinta_1.png');
     background-repeat: no-repeat;
     background-position-x: center;
-    background-size: cover;
+    background-size: 100% 100%;
     .hashtag {
       color: white;
     }
@@ -58,6 +63,117 @@ header {
 
 #instagram {
   display: none;
+}
+
+#tt-frame {
+  display: none !important;
+}
+
+.in-content {
+  display: flex;
+}
+
+.tt {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  .content {
+    background-image: url('../img/faixa_tinta_2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 200px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    .in-content {
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: center;
+      align-items: center;
+      .pic {
+        text-align: center;
+        width: 150px;
+        .photo {
+          width: 90px;
+          height: 90px;
+          -moz-border-radius: 50%; 
+          -webkit-border-radius: 50%; 
+          border-radius: 50%;
+          background-size: cover;
+          border: 5px solid white;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      .ct {
+        width: 300px;
+        text-align: left;
+        flex-grow: 1;
+        flex-shrink: 0;
+        position: relative;
+        word-wrap: break-word;
+        .user {
+          font-weight: bold;
+          font-size: 1.8em;
+          span {
+            font-size: 65%;
+            font-weight: lighter;
+            color: lighten($dark-gray, 30%);
+          }         
+        }
+        a.user {
+          color: $dark-gray;
+          text-decoration: none;
+        }
+        .tweet {
+          color: lighten($dark-gray, 10%);
+          .twitter-emoji {
+            width: 20px;
+            margin-left: 5px;
+            margin-right: 5px;
+          }
+        }
+        .time {
+          color: lighten($dark-gray, 30%);
+          position: absolute;
+          top: 0;
+          right: 0;
+          cursor: pointer;
+        }
+        .action-btns {
+          position: absolute;
+          right: 0;
+          bot: 0;
+          i {
+            margin-left: 10px;
+          }
+          a {
+            color: lighten($dark-gray, 10%);
+            &:hover {
+              color: lighten($dark-gray, 30%);
+            }
+          }
+        }
+      }
+    }
+  }
+  .icon {
+    float: right;
+    max-width: 100%;
+  }
+  h1 {
+    color: $dark-blue;
+    span {
+      color: $green;
+    }
+  }
 }
 
 //Loader

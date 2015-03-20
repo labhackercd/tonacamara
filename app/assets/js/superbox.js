@@ -23,12 +23,8 @@
           
           
 			$('.superbox-list').click(function() {
-              
-              console.log('to fazendo');
-              
-                
-		
-				var currentimg = $(this).find('.superbox-img');
+
+                var currentimg = $(this).find('.superbox-img');
 				var imgData = currentimg.data('img');
 				superboximg.attr('src', imgData);
 				
