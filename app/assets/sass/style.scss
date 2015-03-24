@@ -70,7 +70,7 @@ header {
 }
 
 .in-content {
-  display: flex;
+  display: none;
 }
 
 .tt {
@@ -120,10 +120,12 @@ header {
         position: relative;
         word-wrap: break-word;
         .user {
-          font-weight: bold;
-          font-size: 1.8em;
-          span {
-            font-size: 65%;
+          span.name{
+            font-weight: bold;
+            font-size: 1.8em;
+          }
+          span.nickname {
+            margin-left: 5px;
             font-weight: lighter;
             color: lighten($dark-gray, 30%);
           }         
@@ -146,8 +148,12 @@ header {
           top: 0;
           right: 0;
           cursor: pointer;
+          abbr {
+            cursor: pointer;
+          }
         }
         .action-btns {
+          display: none;
           position: absolute;
           right: 0;
           bot: 0;
@@ -172,6 +178,41 @@ header {
     color: $dark-blue;
     span {
       color: $green;
+    }
+  }
+}
+
+#youtube {
+  h1 {
+    color: $green;
+    margin-left: 85px;
+  }
+  margin-top: 60px;  
+  .content {
+    margin-top: -72px;
+    background-image: url('../img/faixa_tinta_3_2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 400px;
+    .in-content-yt {
+      padding-top: 60px;
+      height: 90%;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      .vid {
+        margin-top: 10px;
+      }
+      .l {
+        height: 100%;
+        .vid {
+          height: 48%;
+        }
+        .vid:nth-child(2) {
+          margin-top: 12px;
+        }
+      }
     }
   }
 }

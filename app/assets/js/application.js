@@ -16,6 +16,52 @@ $(function() {
     
   feed.run();
   
+  $('.content').mouseenter(function() {
+    $('.action-btns').show();
+  });
+  $('.content').mouseleave(function() {
+    $('.action-btns').stop(true).hide();
+  });
+  
+  
+  
+  //Youtube
+  
+  var api_key = 'AIzaSyC9n-4EQr-6Se6eQdg9AsUJe69nFHe_-lo';
+  
+  search();
+
+  function search() {
+    
+    var request = 'https://www.googleapis.com/youtube/v3/search?'
+        part = 'snippet';
+        order = 'date';
+        q = 'cat';
+        vid = [];
+        i = 0;
+    
+    request = request + 'order=' + order + '&' + 'part=' + part + '&' + 'q=' + q + '&' + 'key=' + api_key;
+    
+    $.getJSON( String(request), function( json ) {
+      var items = json.items;
+      
+      $(items).each(function() {
+        vid.push(this.id.videoId);
+      });
+      
+      $('.vid').each(function() {
+        var iframe = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+vid[i]+'" frameborder="0" allowfullscreen></iframe>';
+        $(this).append(iframe);
+        i++;
+      });
+ 
+      
+     });
+  
+    
+  }
+  
+  
   //Instagram feed information variables
   
   var avatar_url = [];
@@ -28,45 +74,72 @@ $(function() {
       reply_url = [];
       retweet_url = [];
       favorite_url = [];
+      i = 0;
+      tweets_lenght = 0;
     
   $(window).load(function(){
+    
     $('.load').remove();
     $('#instagram').fadeIn('slow'); 
     
-    var tweets_lenght = storeFeed();
+    tweets_lenght = storeFeed();
     
-    console.log(tweets_lenght);
-    
-    //setInterval(createFeed, 2000);
+    createFeed();
+    setInterval(createFeed, 5000);
     
   });
   
   
   function createFeed() {
     
-    if (tweets_lenght > 0)
+    $('.in-content').css('display', 'flex');
+      
+    if (i < tweets_lenght) {          
+      insertData(i); 
+      i++;
+    } else {
+      storeFeed();
+      i = 0;      
+      insertData(i); 
+      i++;
+    }
     
   }
   
   
   function insertData(n) {
     
-    $('.photo').css('background-image', 'url('+avatar_url[n]+')');
-    $('a.user').attr('href', profile_url[n]);
-    $('.user').html(p_name[n]);
-    $('.nickname').html(p_nickname[n]);
-    $('.tweet').html(e_entry_title[n]);
-    $('.time').attr('href', dt_url[n]);
-    $('.time').html(dt_updated[n]);
-    $('.reply').attr('href', reply_url[n]);
-    $('.retweet').attr('href', retweet_url[n]);
-    $('.favorite').attr('href', favorite_url[n]);
+    $('.in-content').fadeOut('slow', function() {
+      $('.photo').css('background-image', 'url('+avatar_url[n]+')');
+      $('a.user').attr('href', profile_url[n]);
+      $('.name').html(p_name[n]);
+      $('.nickname').html(p_nickname[n]);
+      $('.tweet').html(e_entry_title[n]);
+      $('.time').attr('href', dt_url[n]);
+      $('.time').html(dt_updated[n]);
+      $('.reply').attr('href', reply_url[n]);
+      $('.retweet').attr('href', retweet_url[n]);
+      $('.favorite').attr('href', favorite_url[n]);
+    });   
+    
+    $('.in-content').fadeIn('slow');
     
   }
   
   
   
   function storeFeed() {
+    
+    avatar_url = [];
+    profile_url = [];
+    p_name = [];
+    p_nickname = [];
+    e_entry_title = [];
+    dt_updated = [];
+    dt_url = [];
+    reply_url = [];
+    retweet_url = [];
+    favorite_url = [];
     
     var i = 0;
     
@@ -83,7 +156,7 @@ $(function() {
         retweet_url.push($(this).find('.retweet-action.web-intent').attr('href'));
         favorite_url.push($(this).find('.favorite-action.web-intent').attr('href')); 
         
-        i++;
+        i++;      
       
     });
 
