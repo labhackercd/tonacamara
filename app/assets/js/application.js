@@ -1,9 +1,12 @@
-$(function() {
+$(function () {
+
+    var hashtag = 'reformapolitica';
+    $('.hashtag').html('#'+hashtag);
   
   
     var feed = new Instafeed({
       get: 'tagged',
-      tagName: 'cat',
+      tagName: hashtag,
       limit: 16,
       resolution: 'standard_resolution',
       clientId: '580e9844a5a3431a80641d571f8af4ce',
@@ -36,7 +39,7 @@ $(function() {
     var request = 'https://www.googleapis.com/youtube/v3/search?'
         part = 'snippet';
         order = 'date';
-        q = 'cat';
+        q = hashtag;
         vid = [];
         i = 0;
     
