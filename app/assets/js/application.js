@@ -1,6 +1,6 @@
 $(function () {
 
-    var hashtag = 'reformapolitica';
+    var hashtag = 'tonacamara';
     $('.hashtag').html('#'+hashtag);
   
   
@@ -44,6 +44,7 @@ $(function () {
         i = 0;
     
     request = request + 'order=' + order + '&' + 'part=' + part + '&' + 'q=' + q + '&' + 'key=' + api_key;
+    console.log(request);
     
     $.getJSON( String(request), function( json ) {
       var items = json.items;
