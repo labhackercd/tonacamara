@@ -54,7 +54,7 @@ $(function () {
       });
       
       $('.vid').each(function() {
-        var iframe = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+vid[i]+'" frameborder="0" allowfullscreen></iframe>';
+        var iframe = '<iframe width="100%" height="350px" src="https://www.youtube.com/embed/'+vid[i]+'" frameborder="0" allowfullscreen></iframe>';
         $(this).append(iframe);
         i++;
       });
