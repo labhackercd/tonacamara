@@ -7,7 +7,7 @@ $(function () {
     var feed = new Instafeed({
       get: 'tagged',
       tagName: hashtag,
-      limit: 16,
+      limit: 12,
       resolution: 'standard_resolution',
       clientId: '580e9844a5a3431a80641d571f8af4ce',
       target: 'instagram',
@@ -28,7 +28,7 @@ $(function () {
   
   
   
-  //Youtube
+  //Youtube feed
   
   var api_key = 'AIzaSyC9n-4EQr-6Se6eQdg9AsUJe69nFHe_-lo';
   
@@ -66,7 +66,7 @@ $(function () {
   }
   
   
-  //Instagram feed information variables
+  //Twitter feed information variables
   
   var avatar_url = [];
       profile_url = [];

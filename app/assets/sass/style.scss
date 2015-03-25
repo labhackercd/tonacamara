@@ -8,10 +8,12 @@
     font-style: normal;
 }
 
-$dark-blue: #003675;
+$dark-blue: #C5CD67;
 $dark-gray: #313131;
 $blue: #008BC5;
-$green: #45651A;
+$green: #472F26;
+
+#C5CD67
 
 hr {
   border: 0px;
@@ -33,6 +35,7 @@ header {
   //background-color: #d7d5d5;
   text-align: center;
   img.logo {
+    width: 150px;
     margin-top: 50px;
     max-width: 80%;
   }
@@ -183,21 +186,24 @@ header {
 }
 
 #youtube {
+  height: 350px;
   h1 {
-    color: $green;
+    color: $dark-blue;
     margin-left: 85px;
+    .hashtag {
+      color: $green;
+    }
   }
   margin-top: 60px;  
   .content {
     margin-top: -72px;
     background-image: url('../img/faixa_tinta_3_2.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    height: 400px;
+    background-repeat-y: initial;
+    background-position: top;
+    background-size: 100%;
     .in-content-yt {
       padding-top: 60px;
-      height: 90%;
+      //height: 90%;
       width: 80%;
       margin-left: auto;
       margin-right: auto;
@@ -205,16 +211,20 @@ header {
         margin-top: 10px;
       }
       .l {
-        height: 100%;
         .vid {
-          height: 48%;
+          height: 50%;
+          margin-top: 20px;
         }
-        .vid:nth-child(2) {
+        /*.vid:nth-child(2) {
           margin-top: 12px;
-        }
+        }*/
       }
     }
   }
+}
+
+a.edm-d:hover {
+  opacity: 0.7;
 }
 
 //Loader
