@@ -8,6 +8,11 @@
     font-style: normal;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 $dark-blue: #C5CD67;
 $dark-gray: #313131;
 $blue: #008BC5;
@@ -65,7 +70,10 @@ header {
 }
 
 #instagram {
+  font-family: 'besom';
+  font-size: 1.2em;
   display: none;
+  position: relative;
 }
 
 #tt-frame {
@@ -74,6 +82,13 @@ header {
 
 .in-content {
   display: none;
+}
+
+.seemore {
+  position: absolute;
+  right: 0;
+  bottom: -35px;
+  margin-right: 25px;
 }
 
 .tt {

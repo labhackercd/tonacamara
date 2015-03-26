@@ -19,10 +19,10 @@ $(function () {
     
   feed.run();
   
-  $('.content').mouseenter(function() {
+  $('#twitter').mouseenter(function() {
     $('.action-btns').show();
   });
-  $('.content').mouseleave(function() {
+  $('#twitter').mouseleave(function() {
     $('.action-btns').stop(true).hide();
   });
   
