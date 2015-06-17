@@ -18,7 +18,26 @@ $dark-gray: #313131;
 $blue: #008BC5;
 $green: #472F26;
 
-#C5CD67
+.aviso {
+  margin-left: 20px;
+  p {
+    font-family: 'besom';
+    font-size: 2em;
+    padding-top: 15px;
+  }
+  margin-top: 15px;
+  img {
+    width: 100px;
+    float: left;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    margin-right: 10px;
+  }
+}
 
 hr {
   border: 0px;
@@ -201,6 +220,13 @@ header {
 }
 
 #youtube {
+  position: relative;
+  .yt-info {
+    position: absolute;
+    top: -20px;
+    right: 50px;
+    opacity: .3;
+  }
   h1 {
     color: $dark-blue;
     margin-left: 85px;
