@@ -3,11 +3,14 @@ $(function () {
     var hashtag = 'tonacamara';
     $('.hashtag').html('#'+hashtag);
   
+    var instatags = [hashtag, 'tônacamara', 'tônacâmara']
   
+  $(instatags).each(function() {
+    tag = String(this);
     var feed = new Instafeed({
       get: 'tagged',
-      tagName: hashtag,
-      limit: 12,
+      tagName: tag,
+      limit: 8,
       resolution: 'standard_resolution',
       clientId: '580e9844a5a3431a80641d571f8af4ce',
       target: 'instagram',
@@ -15,9 +18,14 @@ $(function () {
       after: function() {      
         $('#instagram').SuperBox();      
       }
+    });
+    feed.run();
   });
+  
     
-  feed.run();
+  
+
+  
   
   $('#twitter').mouseenter(function() {
     $('.action-btns').show();
