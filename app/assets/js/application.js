@@ -52,8 +52,7 @@ $(function () {
         vid = [];
         i = 0;
     
-    request = request + 'order=' + order + '&' + 'part=' + part + '&' + 'q=' + q + '&' + 'key=' + api_key;
-    console.log(request);
+    request = request + 'order=' + order + '&' + 'part=' + part + '&' + 'q=' + '%23' + q + '&' + 'key=' + api_key;
     
     $.getJSON( String(request), function( json ) {
       var items = json.items;
@@ -67,11 +66,7 @@ $(function () {
         $(this).append(iframe);
         i++;
       });
- 
-      
      });
-  
-    
   }
   
   
@@ -84,9 +79,8 @@ $(function () {
       e_entry_title = [];
       dt_updated = [];
       dt_url = [];
-      reply_url = [];
       retweet_url = [];
-      favorite_url = [];
+      like_url = [];
       i = 0;
       tweets_lenght = 0;
     
@@ -130,9 +124,8 @@ $(function () {
       $('.tweet').html(e_entry_title[n]);
       $('.time').attr('href', dt_url[n]);
       $('.time').html(dt_updated[n]);
-      $('.reply').attr('href', reply_url[n]);
       $('.retweet').attr('href', retweet_url[n]);
-      $('.favorite').attr('href', favorite_url[n]);
+      $('.like').attr('href', like_url[n]);
     });   
     
     $('.in-content').fadeIn('slow');
@@ -150,24 +143,22 @@ $(function () {
     e_entry_title = [];
     dt_updated = [];
     dt_url = [];
-    reply_url = [];
     retweet_url = [];
-    favorite_url = [];
+    like_url = [];
     
     var i = 0;
     
-    $('#twitter-widget-0').contents().find('.h-entry').each(function() {
-      
-        avatar_url.push($(this).find('.u-photo.avatar').attr('data-src-2x'));
-        profile_url.push($(this).find('.u-url.profile').attr('href'));
-        p_name.push($(this).find('.p-name').html());
-        p_nickname.push($(this).find('.p-nickname').html());
-        e_entry_title.push($(this).find('.e-entry-title').html());
+    $('#twitter-widget-0').contents().find('.timeline-TweetList-tweet:not(:has(.timeline-Tweet-retweetCredit))').each(function() {
+
+        avatar_url.push($(this).find('.TweetAuthor-avatar > .Avatar').attr('data-src-2x'));
+        profile_url.push($(this).find('.TweetAuthor-link').attr('href'));
+        p_name.push($(this).find('.TweetAuthor-name').html());
+        p_nickname.push($(this).find('.TweetAuthor-screenName').html());
+        e_entry_title.push($(this).find('.timeline-Tweet-text').html());
         dt_updated.push($(this).find('.dt-updated').html());
-        dt_url.push($(this).find('.u-url.permalink.customisable-highlight').attr('href'));
-        reply_url.push($(this).find('.reply-action.web-intent').attr('href'));
-        retweet_url.push($(this).find('.retweet-action.web-intent').attr('href'));
-        favorite_url.push($(this).find('.favorite-action.web-intent').attr('href')); 
+        dt_url.push($(this).find('.timeline-Tweet-timestamp').attr('href'));
+        retweet_url.push($(this).find('.timeline-ShareMenu-container > ul > li:first-child .timeline-ShareMenu-option').attr('href'));
+        like_url.push($(this).find('.TweetAction--heart').attr('href')); 
         
         i++;      
       
