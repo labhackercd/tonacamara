@@ -14,10 +14,13 @@
 	$.fn.SuperBox = function(options) {
 		
 		var superbox      = $('<div class="superbox-show"></div>');
+		var superboxlink  = $('<a href="" target="_blank" class="superbox-current-link"></a>');
 		var superboximg   = $('<img src="" class="superbox-current-img">');
+		var superboxdsc   = $('<span class="superbox-dsc"></span>');
 		var superboxclose = $('<div class="superbox-close"></div>');
 		
-		superbox.append(superboximg).append(superboxclose);
+		superbox.append(superboxlink).append(superboxdsc).append(superboxclose);
+		superboxlink.append(superboximg);
 		
 		return this.each(function() {
           
@@ -25,8 +28,13 @@
 			$('.superbox-list').click(function() {
 
                 var currentimg = $(this).find('.superbox-img');
+                var currentdsc = $(this).find('.superbox-dsc');
 				var imgData = currentimg.data('img');
+				var imgLink = currentimg.data('link');
+				var dscData = currentdsc.text();
 				superboximg.attr('src', imgData);
+				superboxlink.attr('href', imgLink);
+				superboxdsc.text(dscData);
 				
 				if($('.superbox-current-img').css('opacity') == 0) {
 					$('.superbox-current-img').animate({opacity: 1});
@@ -39,7 +47,7 @@
 				}
 				
 				$('html, body').animate({
-					scrollTop:superbox.position().top - currentimg.width()
+					scrollTop:superbox.position().top + currentimg.width()
 				}, 'medium');
 			
 			});

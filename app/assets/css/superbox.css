@@ -42,6 +42,19 @@ img {
 	max-width:100%;
 	width:100%;
 	cursor:pointer;
+	height: 0;
+	padding: 50% 0;
+	background-size: cover;
+	background-position: center center;
+}
+.superbox-dsc {
+	font-size: 1.5rem;
+	display: block;
+	color: white;
+	font-family: sans-serif;
+	max-width: 640px;
+	margin: auto;
+	margin-top: 20px;
 }
 .superbox-show {
 	text-align:center;
@@ -57,8 +70,11 @@ img {
 }
 .superbox-current-img {
 	max-width:100%;
-	box-shadow:0 1px 4px #222;
-	border:1px solid #222;
+	box-shadow:0 0px 25px rgba(0, 0, 0, 0.75), 0 0px 15px rgba(0, 0, 0, 0.45);
+	transition: box-shadow ease-in-out 0.2s;
+}
+.superbox-current-img:hover {
+	box-shadow:0 0px 35px rgba(255,255,255,0.16), 0 0px 25px rgba(255, 255, 255, 0.33);
 }
 .superbox-img:hover {
 	opacity:0.8;

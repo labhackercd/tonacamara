@@ -4,38 +4,39 @@ $(function () {
     $('.hashtag').html('#'+hashtag);
   
     var instatags = [hashtag, 'tônacamara', 'tônacâmara']
-  
-  $(instatags).each(function() {
-    tag = String(this);
-    var feed = new Instafeed({
-      get: 'tagged',
-      tagName: tag,
-      limit: 8,
-      resolution: 'standard_resolution',
-      clientId: '580e9844a5a3431a80641d571f8af4ce',
-      target: 'instagram',
-      template: '<div class="superbox-list"><img src="{{image}}" data-img="{{image}}" alt="" class="superbox-img"></div><!-- -->',
-      after: function() {      
-        $('#instagram').SuperBox();      
-      }
-    });
-    feed.run();
-  });
-  
-    
-  
 
-  
-  
+    //Count number of tags
+    var counttags = $(instatags).length;
+
+    $(instatags).each(function(i) {
+      tag = String(this);
+      var feed = new Instafeed({
+        get: 'tagged',
+        tagName: tag,
+        limit: 8,
+        resolution: 'standard_resolution',
+        clientId: '580e9844a5a3431a80641d571f8af4ce',
+        target: 'instagram',
+        template: '<div class="superbox-list"><div style="background-image: url({{image}})" data-img="{{image}}" data-link="{{link}}" class="superbox-img"><p class="superbox-dsc hidden">{{caption}}</p></div></div>',
+        after: function() {
+          counttags--
+
+          //Run SuperBox only after the last tag iteration
+          if (counttags === 0) {
+            $('#instagram').SuperBox();
+          }          
+        }  
+      });
+      feed.run();
+    });
+
   $('#twitter').mouseenter(function() {
     $('.action-btns').show();
   });
   $('#twitter').mouseleave(function() {
     $('.action-btns').stop(true).hide();
   });
-  
-  
-  
+
   //Youtube feed
   
   var api_key = 'AIzaSyC9n-4EQr-6Se6eQdg9AsUJe69nFHe_-lo';
